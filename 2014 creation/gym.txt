@@ -1,0 +1,556 @@
+<?php    
+    /*------------includes--------------*/
+    include ('./includes/connections.php');
+    include ('./includes/brain_file.php');
+    include ('./includes/style_top.php');
+    /*------------includes--------------*/
+    echo "<center><main>";
+     $q_ry = "SELECT me.my_experience,me.my_crimeexp,me.my_job,me.my_job_rank,me.my_comp,me.my_faction_days,ms.*,m.my_rank,m.my_property,meq.*
+             FROM `members_extra` me
+             INNER JOIN `memberstats` AS ms
+             ON me.playerid = ms.playerid
+             INNER JOIN `members` AS m
+             ON me.playerid = m.playerid
+             INNER JOIN `member_equipped` AS meq
+             ON me.playerid = meq.playerid
+             WHERE me.playerid = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+    $mjjb = mysql_query($q_ry);
+    $do = mysql_fetch_array($mjjb);
+   if($do['my_speed'] < 1000) { $fsp="red"; } if($do['my_speed'] >= 1000) { $fsp="blue"; }
+    if($do['my_speed'] >= 10000) { $fsp="green"; } if($do['my_speed'] >= 100000) { $fsp="#996600"; }
+    if($do['my_strength'] < 1000) { $fst="red"; } if($do['my_strength'] >= 1000) { $fst="blue"; }
+    if($do['my_strength'] >= 10000) { $fst="green"; } if($do['my_strength'] >= 100000) { $fst="#996600"; }
+    if($do['my_defence'] < 1000) { $fdf="red"; } if($do['my_defence'] >= 1000) { $fdf="blue"; }
+    if($do['my_defence'] >= 10000) { $fdf="green"; } if($do['my_defence'] >= 100000) { $fdf="#996600"; }
+    if($do['my_dexterity'] < 1000) { $fdx="red"; } if($do['my_dexterity'] >= 1000) { $fdx="blue"; }
+    if($do['my_dexterity'] >= 10000) { $fdx="green"; } if($do['my_dexterity'] >= 100000) { $fdx="#996600"; }
+    $totalstats = ($do['my_speed']+$do['my_strength']+$do['my_defence']+$do['my_dexterity']);
+    if($totalstats < 10000) { $fts="red"; } if($totalstats >= 10000) { $fts="blue"; }
+    if($totalstats >= 100000) { $fts="green"; } if($totalstats >= 1000000) { $fts="#996600"; }
+    if($do['my_labor'] < 10000) { $flb="red"; } if($do['my_labor'] >= 10000) { $flb="blue"; }
+    if($do['my_labor'] >= 100000) { $flb="green"; } if($do['my_labor'] >= 1000000) { $flb="#996600"; }
+    if($do['my_intelligence'] < 10000) { $fin="red"; } if($do['my_intelligence'] >= 10000) { $fin="blue"; }
+    if($do['my_intelligence'] >= 100000) { $fin="green"; } if($do['my_intelligence'] >= 1000000) { $fin="#996600"; }
+    if($do['my_endurance'] < 10000) { $fen="red"; } if($do['my_endurance'] >= 10000) { $fen="blue"; }
+    if($do['my_endurance'] >= 100000) { $fen="green"; } if($do['my_endurance'] >= 1000000) { $fen="#996600"; }
+    /*-------------------------End stat colours--------------------------*/
+    $rank = "#" . $do['my_rank'] . " " . $ranks[$do['my_rank']];
+    $speed = "<font color = '$fsp'>".number_format($do['my_speed'], 4)."</font>";
+    $stren = "<font color = '$fst'>".number_format($do['my_strength'], 4)."</font>";
+    $defen = "<font color = '$fdf'>".number_format($do['my_defence'], 4)."</font>";
+    $dexte = "<font color = '$fdx'>".number_format($do['my_dexterity'], 4)."</font>";
+    $manua = "<font color = '$flb'>".number_format($do['my_labor'], 4)."</font>";
+    $intel = "<font color = '$fin'>".number_format($do['my_intelligence'], 4)."</font>";
+    $endur = "<font color = '$fen'>".number_format($do['my_endurance'], 4)."</font>";
+    $totalstats = "<font color = '$fts'>".number_format($totalstats, 4)."</font>";
+    if($pl['my_jail'] > gmtime())
+    {
+    echo "Jail ";
+    }
+    else
+    {
+     echo "";
+    }
+    echo "Gym</main><hr width = '80%'>";
+
+
+    if($_SESSION['verified'] <= (time()-900)) {
+    if(!$_SESSION['attempts']) { $_SESSION['attempts'] = 10; }
+    if(!$_GET['selected'])
+    {
+      echo "Every 15 minutes you are required to do a verification check.<br/>
+            You must click the correct number from below, You get 10 attempts,<br/>
+            After 10 tries you will be put in federal jail for up to 10 days.
+            <hr width = '50%'>
+            <table width = '225' height = '250' class = 'rounded'>
+            <tr>
+            <td align = 'center'>
+            <table width = '225' height = '250' border = '1'>
+            <tr><td align = 'center' valign = 'top' colspan = '3' height = '150'>
+            <img src='verify.php'>
+            </td></tr>
+            <tr>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=1';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>1</font></u></td>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=2';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>2</font></u></td>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=3';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>3</font></u></td>
+            </tr>
+            <tr>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=4';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>4</font></u></td>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=5';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>5</font></u></td>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=6';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>6</font></u></td>
+            </tr>
+            <tr>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=7';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>7</font></u></td>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=8';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>8</font></u></td>
+            <td align = 'center' width = '33%' onclick=\"location.href='gym.php?selected=9';\"
+            onMouseOver=\"style.backgroundColor='#AABBCC';
+            this.style.cursor='pointer';\"
+            onMouseOut=\"style.backgroundColor='';\">
+            <u><font size = '+1'>9</font></u></td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+            <hr width = '50%'>
+            &gt;<a href='index.php'>Back</a>
+            <hr width = '50%'>";
+      include ('./includes/style_bottom.php');
+      exit();
+      }
+      else
+         {
+           $_GET['selected'] = abs(intval($_GET['selected']));
+           if(!$_GET['selected'])
+           {
+              $_SESSION['attempts']-=1;
+              echo "<font color = 'red'>Invalid number, You now only have ".$_SESSION['attempts']." attempts left!</font>
+              <hr width = '50%'>
+              &gt;<a href='gym.php'>Try again</a>
+              <hr width = '50%'>";
+              include ('./includes/style_bottom.php');
+              exit();
+           }
+           else if($_GET['selected'] != $_SESSION['ver_num'])
+           {
+              $_SESSION['attempts']-=1;
+              echo "<font color = 'red'>Invalid number, You now only have ".$_SESSION['attempts']." attempts left!</font>
+              <hr width = '50%'>
+              &gt;<a href='gym.php'>Try again</a>
+              <hr width = '50%'>";
+              include ('./includes/style_bottom.php');
+              exit();
+           }
+           else
+           {
+             $_SESSION['verified'] = time();
+             $_SESSION['ver_num'] = "";
+             $_SESSION['attempts'] = "";
+             header('location:gym.php');
+           }
+         }
+    }
+    else {
+     //User verified
+    }
+    
+  $q_ry = "SELECT me.my_experience,me.my_crimeexp,me.my_job,me.my_job_rank,me.my_comp,me.my_faction_days,ms.*,m.my_rank,m.my_property,meq.*
+             FROM `members_extra` me
+             INNER JOIN `memberstats` AS ms
+             ON me.playerid = ms.playerid
+             INNER JOIN `members` AS m
+             ON me.playerid = m.playerid
+             INNER JOIN `member_equipped` AS meq
+             ON me.playerid = meq.playerid
+             WHERE me.playerid = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+    $mjjb = mysql_query($q_ry);
+    $do = mysql_fetch_array($mjjb);
+$rank = "#" . $do['my_rank'] . " " . $ranks[$do['my_rank']-1];
+    $speed = "<font color = '$fsp'>".number_format($do['my_speed'], 4)."</font>";
+    $stren = "<font color = '$fst'>".number_format($do['my_strength'], 4)."</font>";
+    $defen = "<font color = '$fdf'>".number_format($do['my_defence'], 4)."</font>";
+    $dexte = "<font color = '$fdx'>".number_format($do['my_dexterity'], 4)."</font>";
+    $totalstats = "<font color = '$fts'>".number_format($totalstats, 4)."</font>";
+     
+    echo round_table('750px');
+
+    if($pl['my_hosp'] > gmtime())
+    {
+    echo "<hr width='50%'>Sorry this page is not viewable while in hospital!<hr width='50%'>";
+    include ('./includes/style_bottom.php');
+    exit();
+    }
+    else
+       {
+
+$q_ry = array();
+$q_ry = "SELECT `gymtype`,`wallet` FROM `members` WHERE `playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+
+$gym = array();
+$gym = mysql_fetch_array(mysql_query($q_ry));
+
+$gi = array(1=>'MC Normal Gym',2=>'Woodys Workout Club',3=>'Silver Gym',4=>'Global Gym',5=>'Anabolic Anomalies',6=>'Legs Bums and Tums',7=>'Apollo Gym',8=>'Last Round',9=>'Elites',10=>'Unknown');
+
+$myi = $gi[$gym['gymtype']];
+
+
+         if(!$_POST['train'])
+         {
+           echo "<td align='center' valign='top' width = '800px'>
+             <table cellspacing = '0' cellpadding = '0' border = '0' width = '100%'>
+         <tr><center>
+<!-- Main frame -->
+
+<table><tr><td>
+<!----------FRAME------->
+<!-- Gym description, title and image -->
+<table width='100%'><tr bgcolor='#000000'><td><font color=white size=3>Welcome to the gym!</b></font></td></tr>
+<tr bgcolor=#fff><td><b><h3>What would you like to train today?</h3></b><br/>
+Use the boxes below to increase your battle stats. Each stat has a different benefit. Try to find a balance that works for you.<br/>
+
+<br />
+You walk into the gym and begin browsing the different exercises available.</b><br/>
+You have ".$pl['my_energy']." / ".$pl['my_maxenergy']." energy to train with.</b><br/><br/>
+
+</td></tr></table>
+
+
+</td><td><!-----------------------------Gymclubs--------------------------------->
+  <table width='1%'><tr bgcolor='#000000' align='top'><td><font color=white size=3>Gym Clubs</b></font></td></tr>
+<tr bgcolor=#fff><td><form action='gym-member.php' method='post'>
+
+<select type='dropdown' name='XID'>
+<option value='2'>Woody's Workout Club - $1,000</option>
+<option value='3'>Silver Gym - $10,000</option> 
+<option value='4'>Global Gym - $100,000</option>
+<option value='5'>Anabolic Anomalies - $1,000,000</option>
+<option value='6'>Legs, Bums and Tums - $10,000,000</option>
+<option value='7'>Apollo Gym - $100,000,000</option>
+<option value='8'>Last Round - $500,000,000</option>
+<option value='9'>Elites - $1,000,000,000</option>
+<option value='10'>Unknown - $10,000,000,000</option>
+</select>  <input type = 'submit' class='trainbut' name = 'submit' id = 'submit' value = 'Buy'>
+</form></td></tr>
+  </table>
+  ";
+	  	
+	  	
+      
+      
+      
+     
+     
+     echo "
+     
+       <!-----------------------------endGymclubs---------------------------------> 
+
+       
+</td></tr>
+<tr><td>
+
+<!--- Gym stat Boxes ---->
+<table><tr><td>
+<table width='100%'><tr bgcolor='#000000'><td><font color=white size=3>Strength - <?=$stren?></b></font></tr>
+<tr bgcolor=#fff><td><form action = 'gym.php' method = 'post'>
+		 <p>Increases the damage you make on impact.</p>
+           
+           <center><img src='https://cdn1.iconfinder.com/data/icons/SUPERVISTA/education_icons/png/64/physical_education.png'><br><input style = 'width:50px;' type = 'text' name = 'trains' class='trainbutt' value = '1' maxlength = '100'> 
+
+<select name = 'stat'>
+                 <option value = 'strength'>Strength</option>
+                <input type = 'submit' class='trainbut' name = 'train' value = 'Train'></center>
+           
+           </form>
+           </td></tr></table></td><td>
+           <table width='100%'><tr bgcolor='#000000'><td><font color=white size=3>Defence - <?=$defen?></b></font></tr>
+<tr bgcolor=#fff><td><form action = 'gym.php' method = 'post'>
+		<p>Increases your ability to withstand damage.</p>
+           
+           <center><img src='https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/64/shield.png'><br><input style = 'width:50px;' type = 'text' name = 'trains' class='trainbutt' value = '1' maxlength = '100'> 
+
+<select name = 'stat'>
+                 <option value = 'defence' class='trainbut'>Defence</option>
+                 <input type = 'submit' class='trainbut' name = 'train' value = 'Train'></center>
+           </form></td></tr></table>
+        
+</td></tr>
+<tr><td>
+
+<table width='100%'><tr bgcolor='#000000'><td><font color=white size=3>Speed - <?=$speed?></b></font></tr>
+<tr bgcolor=#fff><td><form action = 'gym.php' method = 'post'>
+		<p>Increases the chance of hitting your opponent.</p>
+           
+           <center><img src='https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/64/speed.png'><br><input style = 'width:50px;' type = 'text' name = 'trains' class='trainbutt' value = '1' maxlength = '100'> 
+
+<select name = 'stat'>
+                 <option value = 'speed'>Speed</option>
+                 <input type = 'submit' class='trainbut' name = 'train' value = 'Train'></center>
+           
+           </form></td></tr></table>
+        
+</td><td>
+
+<table width='100%'><tr bgcolor='#000000'><td><font color=white size=3>Dexterity - <?=$dexte?></b></font></tr>
+<tr bgcolor=#fff><td><form action = 'gym.php' method = 'post'>
+		<p>Increases your ability to evade an attack.</p>
+           
+           <center><img src='https://cdn1.iconfinder.com/data/icons/customicondesign-office6-shadow/64/skill-gap.png'><br><input style = 'width:50px;' type = 'text' name = 'trains' class='trainbutt' value = '1' maxlength = '100'> 
+
+<select name = 'stat'>
+                 <option value = 'dexterity'>Dexterity</option>
+                 <input type = 'submit' class='trainbut' name = 'train' value = 'Train'></center>
+           
+           </form></td></tr></table>
+
+</td>
+
+  
+<!-----------------------------Ending mainFrame--------------------------->
+</tr>
+</table>
+
+  </td>
+            <td></td>
+         </tr>
+         <tr>
+            <td></td>
+            <t></td>
+            <td></td>
+         </tr>
+      </table>
+</div>
+</td>
+  </tr>
+  </table>
+  </div>";
+
+           echo "</td></tr></table>
+                 </td></tr></table>";
+         }
+         else
+            {
+               if(!in_array($_POST['stat'],array('speed','strength','defence','dexterity')))
+               {
+                 echo "Error, Invalid stat!
+                       <hr width = '50%'>&gt;<a href='gym.php'>Back</a><hr width = '50%'>";
+                       include ('./includes/style_bottom.php');
+                       exit();
+               }
+               else
+                  {
+                  $_POST['trains'] = abs(intval($_POST['trains']));
+                  if(!$_POST['trains'])
+                  {
+                    echo "Error, Please enter the amount of times you wish to train!
+                          <hr width = '50%'>&gt;<a href='gym.php'>Back</a><hr width = '50%'>";
+                          include ('./includes/style_bottom.php');
+                          exit();
+                  }
+                  else
+                     {
+                     if($_POST['trains'] > ($pl['my_energy']/5))
+                     {
+                       echo "Error, You dont have enough energy to train this many times!
+                             <hr width = '50%'>&gt;<a href='gym.php'>Back</a><hr width = '50%'>";
+                             include ('./includes/style_bottom.php');
+                             exit();
+                     }
+                     else if($pl['my_jail'] > gmtime() && $_POST['stat'] == 'dexterity')
+                     {
+                       echo "Sorry, Dexterity cannot be gained in jail!
+                             <hr width = '50%'>&gt;<a href='gym.php'>Back</a><hr width = '50%'>";
+                             include ('./includes/style_bottom.php');
+                             exit();
+                     }
+                     else
+                        {
+                          $q_ry = array();
+                          $q_ry = "SELECT `my_speed`,`my_strength`,`my_defence`,`my_dexterity`
+                                   FROM `memberstats`
+                                   WHERE `playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+                          $mystats = array();
+                          $mystats = mysql_query($q_ry);
+                          $ms = array();
+                          $ms = mysql_fetch_array($mystats);
+                          if($pl['my_jail'] > gmtime())
+                          {
+                            $stat_gain = $ms["my_" . $_POST['stat']];
+                            if($_POST['stat'] != 'defence')
+                            {
+                            $stat_gain = (0.0002*$stat_gain)+(0.00212*$pl['my_happy']+(0.45));
+                            }
+                            else
+                            {
+                            $stat_gain = (0.0002*$stat_gain)+(0.00212*$pl['my_happy']+(0.60));
+                            }
+                            if(($_POST['trains']*5) > '25')
+                            {
+                             $mph = 25;
+                            }
+                            else
+                            {
+                             $mph = $_POST['trains']*5;
+                            }
+                            $outcomes = array("speed"=>"You hop on to the treadmill and start running.<br/>
+                                             You manage to do <b>" .rand(20,30). "</b> minutes at 
+                                             <b>".($mph)."</b> 
+                                             mph without stopping.<br/><br/><font color = 'green'>
+                                             You have gained <b>" . ($stat_gain*$_POST['trains']) . "</b> 
+                                             more speed by doing " . $_POST['trains'] . " set(s) of running.</font><br/>",
+                                             "strength"=>"You lie down on the bench press and begin doing 
+                                             reps of <b>". rand($pl['my_level'], ($pl['my_level']*1.5)) ."</b> kg.<br/>
+                                             You manage to do <b>".($_POST['trains'])."</b> reps.<br/><br/>
+                                             <font color = 'green'>You have gained 
+                                             <b>" . ($stat_gain*$_POST['trains']) . "</b> more strength by doing
+                                             <b>".($_POST['trains'])."</b> set(s) of reps.</font><br/>",
+                                             "defence"=>"You walk up to your self-defence trainer and<br/>
+                                             commence the move <b>Spinning kick</b>.<br/>
+                                             He falls to the ground holding his bleeding nose.<br/><br/>
+                                             <font color = 'green'>You have gained 
+                                             <b>" . ($stat_gain*$_POST['trains']) . "</b> more defence by doing 
+                                             <b>".($_POST['trains'])."</b> set(s) of moves</font><br/>.");
+                                             echo $outcomes[$_POST['stat']] . "<br/>You now have a total of
+                                             <b>".($ms["my_" . $_POST['stat']]+$stat_gain*$_POST['trains'])."</b>
+                                             " . $_POST['stat'] . ".";
+                          }
+                          else
+                          {
+                            $stat_gain = $ms["my_" . $_POST['stat']];
+                            if($_POST['stat'] != 'defence')
+                            {
+                            $stat_gain = (0.0002*$stat_gain)+(0.00212*$pl['my_happy']+(0.55));
+                            }
+                            else
+                            {
+                            $stat_gain = (0.0002*$stat_gain)+(0.00212*$pl['my_happy']+(0.25));
+                            }
+                            if(($_POST['trains']*5) > '25')
+                            {
+                             $mph = 25;
+                            }
+                            else
+                            {
+                             $mph = $_POST['trains']*5;
+                            }
+                            $outcomes = array("speed"=>"You hop on to the treadmill and start running.<br/>
+                                             You manage to do <b>" .rand(20,30). "</b> minutes at 
+                                             <b>".($mph)."</b> 
+                                             mph without stopping.<br/><br/><font color = 'green'>
+                                             You have gained <b>" . ($stat_gain*$_POST['trains']) . "</b> 
+                                             more speed by doing " . $_POST['trains'] . " set(s) of running.</font><br/>",
+                                             "strength"=>"You lie down on the bench press and begin doing 
+                                             reps of <b>". rand($pl['my_level'], ($pl['my_level']*1.5)) ."</b> kg.<br/>
+                                             You manage to do <b>".($_POST['trains'])."</b> reps.<br/><br/>
+                                             <font color = 'green'>You have gained 
+                                             <b>" . ($stat_gain*$_POST['trains']) . "</b> more strength by doing
+                                             <b>".($_POST['trains'])."</b> set(s) of reps.</font><br/>",
+                                             "defence"=>"You walk up to your self-defence trainer and<br/>
+                                             commence the move <b>Spinning kick</b>.<br/>
+                                             He falls to the ground holding his bleeding nose.<br/><br/>
+                                             <font color = 'green'>You have gained 
+                                             <b>" . ($stat_gain*$_POST['trains']) . "</b> more defence by doing 
+                                             <b>".($_POST['trains'])."</b> set(s) of moves</font><br/>.",
+                                             "dexterity"=>"You get onto the trampoline and begin jumping.<br/>
+                                             You complete a couple of moves that your trainer taught you.<br/><br/>
+                                             <font color = 'green'>You have gained 
+                                             <b>" . ($stat_gain*$_POST['trains']) . "</b> more dexterity by doing
+                                             <b>".($_POST['trains'])."</b> set(s) of moves</font><br/>.");
+                                             echo $outcomes[$_POST['stat']] . "<br/>You now have a total of
+                                             <b>".($ms["my_" . $_POST['stat']]+$stat_gain*$_POST['trains'])."</b>
+                                             " . $_POST['stat'] . ".";
+                          }
+                          $happyloss = ($pl['my_happy']/100*rand(90,95))-(2*$_POST['trains']);
+                          if($happyloss <= '0')
+                          {
+                          $q_ry = array();
+                          $q_ry = "UPDATE `members`
+                                   SET `my_energy` = `my_energy` - '".mysql_real_escape_string($_POST['trains']*5)."',
+                                       `my_happy` = '0'
+                                   WHERE `playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+                          mysql_query($q_ry);
+                          }
+                          else
+                          {
+                          $q_ry = array();
+                          $q_ry = "UPDATE `members`
+                                   SET `my_energy` = `my_energy` - '".mysql_real_escape_string($_POST['trains']*5)."',
+                                       `my_happy` = '".mysql_real_escape_string($happyloss)."'
+                                   WHERE `playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+                          mysql_query($q_ry);
+                          }
+                          stock_credit(8,1);
+                          $q_ry = array();
+                          $q_ry = "UPDATE `members_extra`
+                                   SET `my_experience` = `my_experience` + '".mysql_real_escape_string($_POST['trains']/3)."'
+                                   WHERE `playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+                          mysql_query($q_ry);
+                        	$gymexp = rand (1,3);
+                        	  mysql_query("UPDATE `members` SET `gymexp` = `gymexp` + '".$gymexp."' WHERE `playerid` = '".$_SESSION['playerid']."'");
+                          $q_ry = array();
+                          $q_ry = "UPDATE `memberstats`
+                                   SET `my_".$_POST['stat']."` = `my_".$_POST['stat']."` +
+                                       '".mysql_real_escape_string($_POST['trains']*$stat_gain)."' WHERE `playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+                            
+                          mysql_query($q_ry) or die(mysql_error());
+                        }
+                      }
+                    }
+            }
+            $mission = array();
+            $gamem = array();
+            $gamem = mysql_query("SELECT * FROM `game_missions` WHERE `m_playerid` = '".$_SESSION['playerid']."'");
+            $mission1 = mysql_query("SELECT * FROM `active_missions` WHERE `am_playerid` = '".$_SESSION['playerid']."'");
+             $q_ry = array();
+     $q_ry = "SELECT am.*,m.*
+              FROM `active_missions` am
+              LEFT JOIN `game_missions` m ON
+              am.am_mission = m.m_id
+              WHERE am.am_playerid = '".mysql_real_escape_string($_SESSION['playerid'])."'";
+     $active = array();
+     $active = mysql_query($q_ry);
+     if(!mysql_num_rows($active))
+     {
+       echo "";
+     }
+     else
+     {
+     
+     $q_ry = "UPDATE `active_missions`
+                  SET `am_objective_1_done` = 'yes'
+                  WHERE `am_playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'
+                  AND `am_mission` = '2'";
+     
+     mysql_query($q_ry);
+     in_event($_SESSION['playerid'], "You completed objective 1 of getting started");
+     
+     
+     }
+            
+            
+            
+            
+            
+  
+       if($pl['my_jail'] > gmtime())
+       {
+         echo "<hr width = '50%'>&gt;<a href='jail.php'>Back</a><hr width = '50%'>";
+       }
+       else
+       {
+         echo "<hr width = '50%'><a href='/forums.php?action=new&XID=20' class='endbut'>Suggestions</a>  <a href='/forums.php?action=new&XID=19' class='endbut'>Bug</a><hr width = '50%'>&gt;<a href='gym.php'>Back</a><hr width = '50%'>";
+       }
+       }
+    include ('./includes/style_bottom.php');
+?>

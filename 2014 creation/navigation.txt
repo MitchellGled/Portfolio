@@ -1,0 +1,310 @@
+<style type="text/css">
+.hydra-navigationhigh {
+	-moz-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	box-shadow:inset 0px 1px 0px 0px #d9fbbe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b8e356), color-stop(1, #a5cc52) );
+	background:-moz-linear-gradient( center top, #b8e356 5%, #a5cc52 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b8e356', endColorstr='#a5cc52');
+	background-color:#b8e356;
+	-webkit-border-top-left-radius:0px;
+	-moz-border-radius-topleft:0px;
+	border-top-left-radius:0px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:0px;
+	-moz-border-radius-bottomright:0px;
+	border-bottom-right-radius:0px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0;
+	border:1px solid #83c41a;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:normal;
+	font-style:normal;
+	height:25px;
+	line-height:35px;
+	width:100%;
+	text-decoration:none;
+	cursor: pointer;
+	text-align:left;
+	text-shadow:1px 1px 0px #86ae47;
+}
+.hydra-navigationhigh:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a5cc52), color-stop(1, #b8e356) );
+	background:-moz-linear-gradient( center top, #a5cc52 5%, #b8e356 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5cc52', endColorstr='#b8e356');
+	background-color:#a5cc52;
+        text-decoration:none;
+}.hydra-navigationhigh:active {
+	position:relative;
+	top:1px;
+}
+.hydra-navigation {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+	background:-moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9');
+	background-color:#f9f9f9;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#666666;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:normal;
+	font-style:normal;
+	height:25px;
+	line-height:35px;
+	width:100%;
+	text-decoration:none;
+	text-align:left;
+	cursor: pointer;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.hydra-navigation:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9) );
+	background:-moz-linear-gradient( center top, #e9e9e9 5%, #f9f9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9');
+	background-color:#e9e9e9;
+	text-decoration:none;
+}.hydra-navigation:active {
+	position:relative;
+	top:1px;
+}
+.hydra-sidebarinfo {
+	width: 200px;
+	color: #000;
+	text-shadow: 1px 1px 0 #FFFFFF;
+	font-size: 12px;
+background: #eeeeee; /* Old browsers */
+background: -moz-linear-gradient(top,  #eeeeee 0%, #eeeeee 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #eeeeee 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #eeeeee 0%,#eeeeee 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #eeeeee 0%,#eeeeee 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #eeeeee 0%,#eeeeee 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #FFF;
+	border-radius: 2px;
+	outline: none;
+}
+.hydra-navigationtitle {
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+    width: 100%;
+}
+.hydra-navigationtitle {
+    background-color: #222;
+    text-size: 20px;
+    color: #fff
+}
+.hydra-navigationtitle {
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+    width: 100%;
+}
+.hydra-navigationtitle {
+    background-color: #222;
+    text-size: 20px;
+    color: #fff
+}
+</style>
+<?php
+ob_start();
+ob_flush();
+$mouseinout = "";
+echo "<tr><td align = 'left' style = 'background:#222' no-repeat center top;font-weight:800;'><div class='hydra-navigationtitle' align = left><left><font color=white size=3> Account</left></div></td></tr>";
+  
+
+		   $q_ry = array();
+   $q_ry = "SELECT `e_id`
+            FROM `member_events`
+            WHERE `e_playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'
+            AND `e_read` = '0'";
+   $evs = array();
+   $evs = mysql_query($q_ry);
+   echo "";
+   if(mysql_num_rows($evs)){echo "<tr><td><a href='events.php' class='hydra-navigationhigh'><img src=http://murder-city.com/images/navigation/events.png> <b>Events".(mysql_num_rows($evs))."</b>"; }
+      else
+      {echo "<tr><td><a href='events.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/events.png> Events (0)";}
+      echo "</a></td></tr>";
+      $q_ry = array();
+      $q_ry = "SELECT `ma_id`
+               FROM `members_awards`
+               WHERE `ma_playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'
+               AND `ma_viewed` = '0'";
+      $aws = array();
+      $aws = mysql_query($q_ry);
+      echo "";
+      if(mysql_num_rows($aws)){echo "<tr><td><a href='awards.php' class='hydra-navigationhigh'><img src=http://murder-city.com/images/navigation/awards.png> <b>Awards".(mysql_num_rows($aws))."</b>"; }
+      else
+      { echo "<tr><td><a href='awards.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/awards.png> Awards (0)"; }
+      echo "</a></td></tr>";
+      $q_ry = array();
+      $q_ry = "SELECT `mm_id`
+               FROM `member_mail`
+               WHERE `mm_playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'
+               AND `mm_read` = '0'";
+      $mail = array();
+      $mail = mysql_query($q_ry);
+      echo "";
+      if(mysql_num_rows($mail)){echo "<tr><td><a href='messages.php' class='hydra-navigationhigh'><img src=http://murder-city.com/images/navigation/mailbox.png> <b>Mailbox(".(mysql_num_rows($mail)).")</b>"; }
+      else
+      { echo "<tr><td><a href='messages.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/mailbox.png> Mailbox(".(mysql_num_rows($mail)).")"; }
+      echo "</a></td></tr>";
+   $q_ry = array();
+   $q_ry = "SELECT `n_id`
+            FROM `member_notifs`
+            WHERE `n_playerid` = '".mysql_real_escape_string($_SESSION['playerid'])."'
+            AND `n_read` = '0'";
+   $nos = array();
+   $nos = mysql_query($q_ry);
+   echo "";
+   if(mysql_num_rows($nos)){echo "<tr><td><a href='awards.php' class='hydra-navigationhigh'><img src=http://murder-city.com/images/navigation/noti.png><b>Notifications(".(mysql_num_rows($nos)).")</b>"; }
+      else
+      {echo "<tr><td><a href='awards.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/noti.png> Notifications(0)";}
+   
+
+      echo "</a></td></tr>";
+	  
+	  
+	
+ 
+	  
+echo "<tr><td align = 'left' style = 'background:#222' no-repeat center top;font-weight:800;'><div class='hydra-navigationtitle' align = left><left><font color='white'  size='3'> Areas</left></div></td></tr>";
+
+         if(($pl['my_hosp']-time()) > 0) { echo "<tr><td><a href='hospital.php' class='hydra-navigation'> <img src='Medical_Suitcase-163.png' Hospital</a></td></tr>
+                                                 <tr><td><a href='item.php' class='hydra-navigation'><img src='/pencil-1.png'> Items</a></td></tr>"; }
+    else if(($pl['my_jail']-time()) > 0) { echo " <tr><td><a href='jail.php' class='hydra-navigation'><img src='prison-16.png'> Jail</a></td></tr>
+     <tr><td><a href='item.php' class='hydra-navigation'><img src='/pencil-1.png'> Items</a></td></tr>
+    
+    "
+    ; }
+    
+	
+	else { echo "<tr><td><a href='index.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/index.png> Home</a></td></tr>
+    <tr><td><a href='city.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/city.png> City</a></td></tr>
+                  <tr><td><a href='item.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/items.png> Items</a></td></tr>
+                  <tr><td><a href='dogs.php' class='hydra-navigation'><img src='http://www.murder-city.com/images/navigation/dog.png'> Dogs</a></td></tr>
+                 "; }
+      if(($pl['my_hosp']-time()) <= '0' && ($pl['my_jail']-time()) <= '0') {
+        echo " <tr><td><a href='properties.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/proper.png> Properties</a></td></tr>
+               <tr><td><a href='school.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/edu.png> Education</a></td></tr>"; }
+      if(($pl['my_hosp']-time()) <= '0') {
+        echo "";
+        if($pl['my_energy'] >= $pl['my_maxenergy']) {echo "<tr><td><a href='gym.php' class='hydra-navigationhigh'><img src=http://murder-city.com/images/navigation/gym.png> <b>Gym</b>"; } else { echo "<tr><td><a href='gym.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/gym.png> Gym"; }
+        echo "</a></td></tr>"; }
+      if(($pl['my_hosp']-time()) <= '0' && ($pl['my_jail']-time()) <= '0') {
+        echo "";
+        if($pl['my_nerve'] >= $pl['my_maxnerve']) { echo "<tr><td><a href='crimes.php' class='hydra-navigationhigh'><img src=http://murder-city.com/images/navigation/crime.png> <b>Crimes</b>"; } else { echo "<tr><td><a href='crimes.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/crime.png> Crimes"; }
+        echo "</a></td></tr>
+               <tr><td><a href='job.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/job.png> Job</a></td></tr>"; }
+      if(($pl['my_hosp']-time()) <= '0' && ($pl['my_jail']-time()) <= '0') {
+        echo " <tr><td><a href='jail.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/jail.png> Jail</a></td></tr>
+               <tr><td><a href='hospital.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/hospital.png> Hospital</a></td></tr>"; }
+        echo " <tr><td><a href='friends.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/friend.png> Friends</a></td></tr>
+               <tr><td><a href='enemies.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/enemy.png> Enemies</a></td></tr>
+               <tr><td><a href='search.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/search.png> Search</a></td></tr>
+              <tr><td><a href='usersonline.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/useronline.png> Users Online</a></td></tr>
+              <tr><td><a href='newspaper.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/newspaper.png> Newspaper</a></td></tr>
+               <tr><td><a href='forums.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/forum.png> Forums</a></td></tr>";
+      if($pl['my_faction']) { echo " <tr><td><a href='faction.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/faction.png> My faction</a></td></tr>"; }
+      
+      if($pl['am_i_staff'] >='2') {
+      echo "<tr><td align = 'left' style = 'background:#222' no-repeat center top;font-weight:800;'><div class='hydra-navigationtitle' align = left><left><font color=white size=3> Staff Quick Links</left></div></td></tr>
+       <tr><td><a href='staff-_-admin/fed_a_user.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/staffpanel.png> Fed User</a></td></tr>
+       <tr><td><a href='staff-_-admin/mail_logs.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/staffpanel.png> Mail Logs</a></td></tr>
+       <tr><td><a href='staff-_-admin/multi_checker.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/staffpanel.png> Multi Checker</a></td></tr>
+       <tr><td><a href='forum-staff123.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/staffpanel.png> Staff Forum</a></td></tr>
+            <tr><td align = 'left' style = 'background:#222' no-repeat center top;font-weight:800;'><div class='hydra-navigationtitle' align = left><left><font color=white size=3> Staff Only</left></div></td></tr>
+             <tr><td><a href='staff-_-admin/' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/staffpanel.png> Staff panel</a></td></tr>";
+      $q_ry = array();
+      $fifmins = time()-15*60;
+      $q_ry = "SELECT `playerid`,`playername`,`am_i_staff`,`laston`
+               FROM `members`
+               WHERE `am_i_staff` >= '2'
+               AND `laston` >= '".mysql_real_escape_string($fifmins)."'";
+      $onstaff = array();
+      $onstaff = mysql_query($q_ry);
+      $os = array();
+      while($os = mysql_fetch_array($onstaff))
+      {
+         echo " <tr><td><a href='profile.php?XID=".($os['playerid'])."' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/staffpanel.png>";
+         if($os['am_i_staff'] == 2) { echo "<font color=#660099>"; } 
+    else if($os['am_i_staff'] == 3) { echo "<b><font color=#0085A3>"; } 
+    else if($os['am_i_staff'] == 4) { echo "<b><font color=#006633>"; } 
+    else if($os['am_i_staff'] == 5) { echo "<b><font color=#AA0000>"; }
+         echo htmlentities($os['playername']),"</a></font></b>(";
+         if($os['laston'] != '0') { $la = ((time()-$os['laston'])>'0') ? (time()-$os['laston']) : 0;
+         $unit="Secs";
+         if($la >= 60) { $la=(int) ($la/60); $unit="Mins"; }
+         if($la >= 60) { $la=(int) ($la/60); $unit="Hrs";
+         if($la >= 24) { $la=(int) ($la/24); $unit="Days"; }
+         }
+         echo "<b>".$la." ".$unit." ago</b>"; } 
+         else { echo "<b>Never</b>"; }
+         echo ")</b></td></tr>"; }
+         }
+         
+
+         echo "
+               <tr><td align = 'left' style = 'background:#222' no-repeat center top;font-weight:800;'><div class='hydra-navigationtitle' align = left><left><font color=white size=3> Settings</left></div></td></tr>
+<tr><td><a href='profile.php?XID=".$_SESSION['playerid']."' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/paper-16.png> My profile</a></td></tr>
+               
+               <tr><td><a href='preferences.php' class='hydra-navigation'><img src='settings-16.png'> Preferences</a></td></tr>
+               <tr><td><a href='bug_report.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/bug-16.png> Report a bug</a></td></tr>
+               <tr><td><a href='help.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/help-20.png> Help tutorial</a></td></tr>
+               <tr><td><a href='logout.php' class='hydra-navigation'><img src=http://murder-city.com/images/navigation/help-20.png> Logout</a></td></tr>
+               <tr><td align='center'><a class='hydra-navigation'><span id = 'time'>".date("h:i:s A", time())."</span></td></tr></table></td></tr></table>
+      </table>"; 
+?>
+
+
+
+
+<script type="text/javascript">
+                     function GetXmlHttpObject() {
+                     var xmlhttp=null;
+                     try {
+                     // Opera 8.0+, Firefox, Safari
+                     xmlhttp=new XMLHttpRequest();
+                     }
+                     catch (e) {
+                     try {
+                     //IE
+                     xmlhttp=new ActiveXObject("Msxml2.XMLHTTP");
+                     }
+                     catch (e) {
+                     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                     }
+                     }
+                     return xmlhttp;
+                     }
+var time = '<? print date("F d, Y h:i:s", time())?>'
+var ampm = '<? print date("F d, Y H:i:s", time())?>'
+var loadmins = <?php echo date('i')+1; ?>;
+var loadsecs = <?php echo date('s')+1; ?>;
+var loaddona = <?php echo $pl['my_dondays'] ?>;
+var loadener = <?php echo $pl['my_energy'] ?>;
+var loadmaxe = <?php echo $pl['my_maxenergy'] ?>;
+var loadgraf = <?php echo $pl['my_nerve'] ?>;
+var loadmaxg = <?php echo $pl['my_maxnerve'] ?>;
+var loadhapy = <?php echo $pl['my_happy'] ?>;
+var loadmaxh = <?php echo $pl['my_maxhappy'] ?>;
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('g R=S T(19);g e=S T(U);B q(D){g V=(D.1a().1b==1)?"0"+D:D;1c V}B 1d(){e.1e(e.I()+1);g W=q(e.X())+":"+q(e.Y())+":"+q(e.I());g 1f=q(e.Y())+":"+q(e.I());g J="1g";2(R.X()>=\'12\'){J="1h"}h.i("U").j=W+" "+J;2(a<k){K(\'Z(\'+l+\',\'+n+\',\'+L+\')\')}2(b<o){K(\'11(\'+l+\',\'+n+\',\'+L+\')\')}2(c<p){K(\'13(\'+l+\',\'+n+\',\'+L+\')\')}n=(n+1);2(n>\'7\'){l=l+1;2(l>\'7\'){l=1}n=1}}B Z(3,8,E){g 4;2(E>0){2(3>\'F\'){4=7}6 2(3>\'G\'){4=F}6 2(3>\'f\'){4=G}6 2(3>\'C\'){4=f}6 2(3>\'10\'){4=C}6 2(3>\'H\'){4=10}}6{2(3>\'r\'){4=7}6 2(3>\'f\'){4=r}6 2(3>\'15\'){4=f}6 2(3>\'H\'){4=15}}2((4-3)==\'0\'&&(7-8)==\'0\'){a=a+5}2(a>=k){a=k;M=\'<9>\'+a+\'/\'+k+\'(N)</9>\'}6{M=\'<9>\'+a+\'/\'+k+\'(\'+(4-3)+\'m:\'+(7-8)+\'s)</9>\'}h.i(\'1i\').j=M;2((4-3)==\'0\'&&(7-8)==\'0\'){h.i(\'1j\').j="<t u=\'v/1k.w\' x = \'"+y((a/k)*d)+"\' z = \'A\'><t u=\'v/O.w\' x = \'"+y(d-((a/k)*d))+"\' z = \'A\'>"}}B 11(3,8,E){2(3>\'14\'){4=7}6 2(3>\'F\'){4=14}6 2(3>\'r\'){4=F}6 2(3>\'G\'){4=r}6 2(3>\'16\'){4=G}6 2(3>\'f\'){4=16}6 2(3>\'17\'){4=f}6 2(3>\'C\'){4=17}6 2(3>\'15\'){4=C}6 2(3>\'10\'){4=15}6 2(3>\'18\'){4=10}6 2(3>\'H\'){4=18}2((4-3)==\'0\'&&(7-8)==\'0\'){b=b+1}2(b>=o){b=o;P=\'<9>\'+b+\'/\'+o+\'(N)</9>\'}6{P=\'<9>\'+b+\'/\'+o+\'(\'+(4-3)+\'m:\'+(7-8)+\'s)</9>\'}h.i(\'1l\').j=P;2((4-3)==\'0\'&&(7-8)==\'0\'){h.i(\'1m\').j="<t u=\'v/1n.w\' x = \'"+y((b/o)*d)+"\' z = \'A\'><t u=\'v/O.w\' x = \'"+y(d-((b/o)*d))+"\' z = \'A\'>"}}B 13(3,8,E){2(3>\'r\'){4=7}6 2(3>\'f\'){4=r}6 2(3>\'15\'){4=f}6 2(3>\'H\'){4=15}2((4-3)==0&&(7-8)==0){c=c+C}2(c>=p){c=p;Q=\'<9>\'+c+\'/\'+p+\'(N)</9>\'}6{Q=\'<9>\'+c+\'/\'+p+\'(\'+(4-3)+\'m:\'+(7-8)+\'s)</9>\'}h.i(\'1o\').j=Q;2((4-3)==\'0\'&&(7-8)==\'0\'){h.i(\'1p\').j="<t u=\'v/1q.w\' x = \'"+y((c/p)*d)+"\' z = \'A\'><t u=\'v/O.w\' x = \'"+y(d-((c/p)*d))+"\' z = \'A\'>"}}',62,89,'||if|mins|timeaway||else|60|secs|small|loadener|loadgraf|loadhapy|140|server|30|var|document|getElementById|innerHTML|loadmaxe|loadmins||loadsecs|loadmaxg|loadmaxh|padlength|45||img|src|images|jpg|width|parseInt|height|5px|function|20|what|dona|50|40|00|getSeconds|timeofday|eval|loaddona|energyfill|full|bar_red|nervefill|happyfill|serverapm|new|Date|time|output|timestring|getHours|getMinutes|refille||refillg||refillh|55||35|25|05|ampm|toString|length|return|display|setSeconds|checrons|AM|PM|mie|sbe|bar_green|mig|sbg|bar_grey|mih|sbh|bar_blue'.split('|'),0,{}))
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('o p(a){a+=\'\';x=a.v(\'.\');f=x[0];q=x.w>1?\'.\'+x[1]:\'\';y b=/(\\d+)(\\d{3})/;z(b.A(f)){f=f.B(b,\'$1\'+\',\'+\'$2\')}C\'$\'+f+q}o D(){5(7(4-6)>\'g\'){4=(4-g)}8 5(7(4-6)>\'h\'){4=(4-h)}8 5(7(4-6)>\'i\'){4=(4-i)}8 5(7(4-6)>\'j\'){4=(4-j)}8 5(7(4-6)>\'k\'){4=(4-k)}8 5(7(4-6)>\'l\'){4=(4-l)}8 5(7(4-6)>=\'1\'){4=(4-1)}9.c(\'e\').m.n=\'E\';9.c(\'e\').r=p(4);5(4==6){s(t);9.c(\'e\').m.n=\'#u\'}}o F(){5(7(6-4)>\'g\'){4=(4+g)}8 5(7(6-4)>\'h\'){4=(4+h)}8 5(7(6-4)>\'i\'){4=(4+i)}8 5(7(6-4)>\'j\'){4=(4+j)}8 5(7(6-4)>\'k\'){4=(4+k)}8 5(7(6-4)>\'l\'){4=(4+l)}8 5(7(6-4)>=\'1\'){4=(4+1)}9.c(\'e\').m.n=\'G\';9.c(\'e\').r=p(4);5(4==6){s(t);9.c(\'e\').m.n=\'#u\'}}',43,43,'||||origm|if|newm|parseInt|else|document|||getElementById||moneyc|x1|1000000|100000|10000|1000|100|10|style|backgroundColor|function|addCommas|x2|innerHTML|clearInterval|timer|CCCCCC|split|length||var|while|test|replace|return|minCash|red|addCash|green'.split('|'),0,{}))
+window.onload=function()
+{
+setInterval("display();",1000);
+}
+</script>

@@ -1,0 +1,284 @@
+<?php    
+   /*------------includes--------------*/
+   include ('./includes/connections.php');
+   include ('./includes/brain_file.php');
+   include ('./includes/style_top.php');
+   /*------------includes--------------*/
+ 
+ 
+$question=strtolower($_POST['question']);
+ 
+$ask="
+<form action=bot.php method=POST>Question: <input type=text name=question>
+<input type=submit value=Ask></form><hr width='700px'>
+<a href='city.php'>> City</a><hr width='700px'>";
+$answer="<h2>Answer</h2>
+";
+   
+ 
+print "<center><main>Brian</main><hr width='700px'>";
+print "Hello, my name is Brain, if you want a question answered<br> about the game please write it in the box below and I'll give you an answer.<br/>If you got any more quetions and answers I can add please  post them <a href='forums.php?action=viewpost&XID=20'><b>here</b></a><hr width='700px'><br/>
+ 
+";
+if ($question=="")
+{
+print $ask;
+exit;
+}
+else
+{
+//The stat variables can be changed to suit your game \\
+ 
+$strenght="might";
+$agility="stealth";
+$force="defence";
+$labour="force";
+$energy="power";
+$nerve="bottle";
+$education="college";
+$exlore="jungle";
+$gang="tribe";
+$game="Crime City Mafia (CCM)";
+ if ($question=="how to make money") { $answerq=" Jobs/Companies
+
+    Note beforehand: You must be level 3 to join a company, so that option may not open up for a few days, in the meantime a job is the only option. 
+
+    I want money now! 
+
+Okay, so you want money now, that's fine maybe it's just temporary. This means you will be joining a company rather than a job. First go to the company forums sticky titled \"New: Looking for work?~\" and post that you are a new player, willing to log in daily, and work for $10,000 pay. Odds are someone will pick you up. Don't get greedy and ask for more!
+
+    I want long term money! 
+
+Good, a wise choice, there are better ways to go than short term cash! There are multiple ways to go about this depending on how long term you think, very long term, or extremely long term. First off, if you want very long term go to jobs instead. You will want to switch between Law and Education, and possibly a little army work. First priority is to get promoted as high as you can for your job stats in each. Second priority is to spend any other job points on the benefits.
+
+For law, use personal trainer (+100 Endurance) for 10,000 Law points. For Education, read a book (+100 Intelligence) for 10,000 education points. Your goal here is to increase your working stats as much as possible for better future payment.
+
+The other option is to go to company search and post that you are new and are looking for any job that trains the manual stat and that you are willing to work for 1k a day (or free if you're up to it, with the rest of this page that should be an option for you). Manual jobs tend to pay much higher than intelligence ones as the workers are much harder to find. This is a very long term goal.
+
+There are more ways to make money with companies, like joining one with good Company benefits.
+
+    Companies with 1* generally pay more, but the benefits are worse, the opposite goes for 5*, it may be a good idea to look for 4* companies as you can stay till 5* and spend points on any of the benefits, or use the lower benefits along with what is usually great payment compared to 5* companies. 
+
+--See Jobs and Companies
+Factions
+
+    What can you get out of being in a faction? Well try to find one willing to help you out with housing or that is just willing to be nice in general, one with good benefits could help. But be careful, if you chose some factions you could end up in the hospital a ton, or end up spending all your energy fighting. This may not be worth it unless you really find the right faction for you. Remember look for one with nice people, or that already states they offer certain benefits, asking rarely works out, get to know people. You can find factions offering all sorts of benefits in the Faction Recruitment Forums you can see [Faction Specials here] 
+
+Forum Bumping
+
+Note: This is no longer allowed so you'll have to bump in good faith and hope you get a reward or two, you can always go back to the people who have paid you in the past.
+
+    Bumping peoples posts who pay you! Look for threads that say money, drugs, or any other item for bumps and rates. The best places for these are the company forums and trade forums, don't go overboard, only bump threads from, or near page 2, up to page 3. You don't always get paid but even a few payouts is a good start for you. Simply press the thumbs up on the top right of the thread then post Bump & Rated in the thread. Some people hate this but for a new guy the payout is a large boost. 
+
+Slutting
+
+    This means attacking someone and intentionally losing to them for pay. There is a sticky for this in the trade section Slutting sticky, ignore the runaway ones until you're higher level by then you'll know what to do for those, you have to be stronger than your target to successfully run away, so just go for losses. I must stress that there are a lot of scammers here, try to find legitimate people, do just 1 hit per person maximum until paid, don't just attack like there's no tomorrow unless you know the player pays out. 
+
+    Be very careful about people trying to trick you with words, like \"no level holders\" etc. or hidden messages in small text. If they're too wordy about the details, odds are they're trying some crap to trick you, giving them an excuse to not pay you. 
+
+Competitions
+
+    The fun and games section of the forums is host to people who do giveaways and contests. Some are scams, if they ask for anything from you, simply don't enter. Be wary and read other players posts to get a feel for if it's legit or not. Contests vary, don't bump threads here for no reason. Read all contests before entering. Be courteous! Players here can get very upset when others don't play properly. As with everywhere on the forums which can't be stressed enough, be cautious! Players can get mean and have short tempers! 
+
+IRC Competitions
+
+    Sometimes these events are posted about in fun and games, sometimes announced on Torn Radio, and mostly the IRC section of the forums. For more details on how to use IRC, see the IRC section of the forums. You can get quite a lot of money off those contests, it may be a hassle setting up for some, but it is worth it. You can also easily access IRC via the chat button on your left user bar.
+    Notable giveaway channels in IRC are #Giveaway #Duckpond #Party #Freebies #Playground and #Hot_Tub *updated Nov 1st 2011* 
+
+Signature making
+
+    Okay, this is NOT something to jump into lightly, this takes a lot of time and effort. First, if you don't have PhotoShop use Gimp - you can get it for free. Then search Google or deviantART for \"Gimp signature tutorials\". Work from there, don't expect it to be easy. You can sell your signatures in the graphics section. 
+
+    Don't get cocky or think your work is great just because you did it. Start out by posting your initial attempts on the Graphics forum, and ask for constructive criticism. From there, you can judge what people look for in a signature, and there are many helpful tutorials on the internet that you can use to improve your signature-making skills. Let people know you're new and open to friendly advice, and say thanks in advance. This section of the forums has the biggest group of mean players in Torn, so odds are you'll get bashed anyways if your stuff looks bad. Just keep trying and don't give up. 
+
+    You can also sell signatures in your Bazaar if you have one by posting them in it and offering worthless items like bricks with the message \"Buy the brick for sig #1, and the plastic ring for sig #2\" and put the price of the item(s) at what you want to sell the signature(s) for. Great for if you have an active bazaar. 
+
+Scamming, Begging, and Stealing
+
+    Don't. It can be great short term money, but at the end of the day legit players always end up on top with help from the friends they make. Doing any of these things will just leave you hated alone and bored. 
+
+City searching
+
+    You can occasionally find items around the city by clicking the city link (or some others). Don't click it too much as it won't help after a point, but clicking it maybe 10x or so every time you do your crimes or gym training will help find items as it really adds up, it's also dumb luck though, sometimes it takes months! Careful to check the item market for the value of ALL items you find even if they sound useless, don't get scammed out of a valuable item!
+    Eventually we all get comfortable with money, so Awareness merits may not be worth it for you although it is down to personal preference, I don't recommend it, and certainly not past level 3 if you do. The education is nearly free and can help out though! (PSY2680 : Attention and Awareness) 
+
+Banking
+
+    Banking requires lvl 5. It's a good way to store cash to prevent it from getting mugged, try not to wrap it up too long by investing more than a week unless you feel comfortable with what you have on hand for other money making ventures. Since the stock market change a few banking merits may be worth it (3-5 levels worth) As a guide I'd say 2-3 if you can bank up to 1B in cash, and 3-5 if you can bank up to 2B in cash, of course this is all down to preference, but you will want to obtain certain Long Term Stocks that pay out better first.
+    Please note that bank space is limited to 2B or $2,000,000,000 in cash. 
+
+Investing in others
+
+    DONT! It's a scam! If anyone offers to help you make money, ignore them, if it sounds too good to be true it is, if it doesn't sound too good to be true it probably still is! 
+
+Running contests (skimming profits)
+
+    This includes things like Lotteries in fun and games, (20 tickets 100k each, winner gets 1.9 million). DO NOT DO IT! People do not like this, will not enter and will attack you for it! While it may seem like a good idea and a way to make a few bucks, unless you're actually giving, it simply wont work and people will label you as a scammer and likely bounty you. 
+
+Birthday gifts
+
+    In torn we give others items (do giveaways) on our birthdays, so watch for other people giving stuff on their birthdays DO NOT ask for stuff on yours, and do not ask for stuff period! Feel free to give your friends presents on their birthdays though! These include benchmark days like 100 days in torn. 
+
+Crimes
+
+    For crimes you generally want to follow one of the crime guides. But if you need money badly, you can take education courses for hacking crimes and 10% increased hacking success. Start them early so you're ready when that time comes. If you're desperate it's possible to start earning money hacking with a 35 nerve bar, it will drop back to 30 pretty quick, then just do arson until it's 35 again or switch between the two on a regular base (like 2-3 warehouse arson per bank hack). FBI hack is not recommended! The alternative is to keep leveling your nerve bar with warehouse arson and save the hacking for when you have better success rates. You can also get a bonus to your success rate via merits (though I don't personally recommend it as worthy of merits), or a faction bonus. 
+
+Housing
+
+    This takes some starter money, as a new player you should probably rent a mansion as it's cheap. Later on you can buy a property, rent it out for a while as a long term investment, then cash in on it when you need the money by reselling it on the market. This has low risk but can lose money if the housing market drops enough. 
+
+Reselling bulk
+
+    Okay this is another great way to make money, you can go to bits n' bobs and find items people like to collect like kitten plushies for example. People with money don't want to buy items 1 at a time every three seconds. You can buy 1,000 for example and resell them on the Trade Forums or in your Bazaar for a huge markup! These items cost very little so this can be a huge moneymaker if you have the drive to do it and more than double your money from one pile of items! Again, a lot of hard work clicking, and probably best for when you have very little money to work with. You should try to sell them just below the current lowest price on competitors bazaars. 
+
+Busting
+
+    People will sometimes give you a cash tip for busting them, you want to work your way up to busting people in jail for long periods of time for better tips. Not all will pay or thank you, it's not a sure thing but it's little energy, good for your crime experience, and a possible source of unsteady income. Joining a Faction with a high level of [Pertinent] will cut energy costs by a lot! Keep in mind this also strengthens your nerve bar which helps with earning money from crimes. 
+
+Bounty collecting
+
+    This can be good money if you have the stats for it, just check the newspaper and click bounty listings. Try to collect off people you can actually beat! Good indications of peoples strength are their age, how many and what type of crimes they have done (shows activity) and their houses. Unfortunately crime records were taken off the front page and by the time you check someones stats another bounty hunter may have beat you, so it may be best to just go off age and housing. Careful of people trying to trick you with a shack or similar property! For more information on combat or more specifically judging an opponents strength see my [Combat Guide] 
+
+Stock Investing
+
+    Since the update this section can be a large gamble! It's a players market now, so any stock trading is gambling against other players. A good rule is people generally try to hold on as long as possible when a stock is rising before they sell, but when it's crashing they try very hard to dump the stock with everyone trying to sell, you can sometimes take advantage by waiting for the crash to buy, if you time it right you can buy very low, then when it's going up in the future and everyone's hugging theirs for dear life still you sell at way below what they're trying to and still earn a large profit, the key is, don't get greedy, it's not guaranteed, and be cautious this IS gambling against other humans. 
+
+Investing in stock benefits
+
+    You can see what benefits suit you and what the market offers, remember the same rule goes with this as stock investing. Buy when you think the market is good and the stock cheap then simply keep it and reap the long term benefits.
+    What stocks are \"worth it?\" I'll stick to a \"for profit\" stock analysis, other benefits like MCS are great but based on personal preference, and this is a money making guide. I'll start by comparing it to the bank and show you what stocks you should get before filling the bank, and any you want to get AFTER filling the bank are purely up to you. I will assume you have level 3 in banking in which it takes about 2 years to double your money in the bank. I will design this guide in a way that does not require frequent updates. 
+
+    LSC (100,000 shares) Assuming Lottery Vouchers are valued at $1,000,000 (They will always mathematically be worth this) shares must be worth $960 or less to pay out in under 2 years.
+    TCHS (150,000 shares) Assuming Boxes of Medical Supplies are worth $400,000 (Current conservative estimate) shares must be worth $256 or less to pay out in under 2 years.
+    SYM (500,000 shares) Assuming Drug packs are worth $5,000,000 each (Current reasonable future estimate) shares must be worth $960 or less to pay out in under 2 years.
+    PRN (1,500,000 shares) Assuming Erotic DVDs are worth $1,000,000 each (Current reasonable estimate) shares must be worth $64 or less to pay out in under 2 years.
+    FHC (2,000,000 shares) Assuming FHCs are worth $21,000,000 (Current conservative estimate) shares must be worth $1,008 or less to pay out in under 2 years.
+    HRG (Not included as the rewards are simply too random to calculate accurately) 
+
+    All other stocks are likely to never be better income investments than the bank in the current system. 
+
+Gambling
+
+    The best advice in gambling is don't but some of you can't help it, so here's what can help.
+    Blackjack: Use a chart always go with the odds (they're still against you by the way). 
+
+Relevant link: Black Jack Chart
+
+    Bookie: Don't bet all your money on a sure thing. There is no such thing as a sure thing unless you have the event rigged! Never gamble more than 10% of your money. Don't gamble your money, instead spend it for the thrill of the bet. In short, only spend what you are wiling to lose for the fun of gambling. Assume it's lost when you place the bet. 
+
+    Poker: Same rule as bookie, only bring what you want to spend for the fun of poker. This is possibly a real money maker if your good enough, but also not a sure thing, be careful! There can be a lot of hands where 1 guy gets a flush king high and the other beats it with ace high and similar results! Simply be careful! 
+
+    Roulette: The odds on torn roulette are actually pretty fair, a good place to gamble, long term the house always wins as always but the odds are fairly close to 50% in this game. 
+
+    Slots: The odds are pretty terrible and you generally shouldn't bet more than $10, but it is a great way for any gambler or non gambler to spend their tokens on $10 spins as they have just as much chance of hitting the jackpot as anyone else, and in this case with $10 bets the odds ARE in your favor! On average I'd say it'd take a player about 38.6 years spinning 75 tokens a day before hitting a jackpot, but hey, someones gotta win, and again the odds are heavily in your favor with $10 bets, it'll on average cost about 141k to win a jackpot! They are however very much against you with higher bets. I believe 10% of every bet goes into the jackpot. 
+
+Owning a Company
+
+    These pay for themselves after about never. Simply don't get them unless you're in it for the challenge, take the money and benefits working where you want instead in a 5 star. The only way to make real money here is staring up a company and reselling, and that takes a ton of work, again not worth it unless you're up for a large project. Buying at 2* can be smart since 1* almost always has the most competition and is the hardest to hire for due to the lack of employee benefits. 
+
+Owning a Faction
+
+    With the current faction system and extremely competitive environment of current Factions utilizing a faction in an attempt to make money is unreasonable, possible, but unreasonable, there's too many other effective ways out there to make money.
+    If you decide to take on this goal anyways you should stock up on items like macanas to give to new players as well as ecstasy for training, and vicodin for chains. You will then need to war to improve your faction and gain respect before selling it, as well as initiate [Organised Crimes]. This is a lot of work, and recruiting other players to a new faction in torns current environment will prove to be extremely difficult. 
+
+Drug/Item running
+
+    This is a great way to make money. You need lvl 15+ and some starting cash. Go to #drugden in IRC (again use IRC forum for an IRC tutorial). There you can get updated prices on drugs and find the cheapest xanax, ecstasy, or vicodin and buy it, then resell it on the item market or in your Bazaar. You will want to work for a 5 star car dealership, or property broker for the benefit of no taxes on the item market to add to your profits if you do not have a bazaar. Sometimes it's worth buying and holding onto drugs, like xanax for a short time while prices go up before reselling (if you have the extra cash to keep buying). 
+
+    You can also buy stuff off cheap bazaars and resell it, though this can take time, and be slow going, traders with enough cash to wait over a long period to get that slightly higher price can profit a lot. It takes money to get money this way. 
+
+    Another option for the very active player is saving up to rent a private island and using it to run items such as flowers and resell them. A very active player with an air strip/PI can profit around 2M a day whilst renting a PI only requires 1M a day. This does require a high level of activity, prepare before hand and be sure you're ready for a lot of running, this can be the start of a permanent PI rental and larger longer term profits. Getting enough money for your first one is simply a matter of using other tips here such as slutting. Running flowers requires little start up money, though renting a Private Island with an air strip is one of the first things you'll want to greatly increase the number of items you can run, the flowers themselves are extremely cheap and the turnover is quite good. Which flowers turn the most profit per hour changes all the time but you should not run flowers from Switzerland as that is where everyone goes to rehab. 
+
+    You start at level 15 with the ability to carry 5 items when traveling.
+    Other things that benefit item runners are the Small(+2), Medium(+3), and Large(+4) suitcases which you can buy in Hawaii. You may only use one suitcase of any type, none in any way stack. A Large Suitcase will easily pay for itself if you're an avid item runner.
+    As mentioned a Private Island with an Air strip increases how many items you can carry by +10
+    The Faction Special Cumber can increase items you can carry on travels by up to +5 at level 5
+    Working at a 3* or better Cruise Line Agency Increases the number of items you can carry by +2
+    This makes the max items you can carry from abroad 26 resulting in some serious profit per hour. 
+
+Reviving
+
+    This one is for after you get the brain surgeon job (top medical job). You can offer to revive people for pay. It costs 75 energy for revives, you do not need to hold this job to revive you just have to have had it at one point. The sticky to offer your services is in the trade section of the forums located here. You can also check the hospital and try mailing people stuck for a long time offering to revive them for money.
+        Certain Factions have the \"Salutary\" special which lowers the energy cost of revives, it can be beneficial and save you some energy (-5 energy per level up) to at least -30 at level 6 lowering the cost to lower than 50 Energy per revive. 
+
+Hunting in Africa
+
+    This one is fairly straight forward. You can go to Africa and hunt for money.
+    Is it good money? Yes. Is it recommended? No. Here's why. It cuts off all other possible forms of profit while holding back your gym training. At the same time, by the time you're making real money in Africa you should be nearing the ability to do hacking crimes which pay out around the same per day. So really, what's the point? Good money? Yes. Worth it? No.
+    Only do this one if you're not too into the game and just wanna hunt all the time, or overnight. You can also do it while going for your Honor for flying to Africa. You can also work at a 3* Zoo Company for a 15% bonus to hunting ability, and do the GEN2120 : Survival Skills education for an additional 15% bonus. You should probably at the least stick around torn and finish the education course before you start hunting.
+        One thing I recommend if you're intent on going for the merit is finish the education, stay in a 5 star Company that gives energy for job points such as a Furniture Company, Restaurant, Grocery Store, or Pub. Save up job points, then stack a few xanax, then use the job points on energy, switch to a 3* or better Zoo or Farm company (you may have to wait 3 days to ensure the passive ability activates, I am unsure). After this you can fly to Africa and use tons of energy all at once towards the hunting merit without spending months of flying back and forth. Hunting for profit however is still not recommended. 
+
+Mugging
+
+    Mugging can get you a lot of money, there are quite a few compulsive gamblers that manage to keep gambling off that money they make from muggings. Keep in mind you have to find people weaker than you that also have money on hand, not always an easy task. 
+
+    Tip offs for people having money are checking high priced items on the auction house and hitting people who bid high, people who got outbid at the last second on high bids, and people who just sold their high priced item on auction! Other ways are bazaars, if you see someone selling high priced items in their bazaar for relatively cheap amounts on trade forums you can whack them after the item is sold, or even after you buy it, you can even tip off your poorer friends who might like the money which isn't much to you. Some also like to go off people who recently won a lot in the casino on high scores, but that rarely works. Another tip is to check the gambling forum for players playing high priced Russian Roulette games! 
+
+    Another more sure way to see if someone is worth money is by joining a 3* or better Grocery Store, or Hair Salon Company, you can use their specials to spy on a potential targets money for 10 job points. 
+
+Racing
+
+    You can't really make money racing so it's something you shouldn't spend too much time on if you're looking for money, the high priced races you see are people using them as a temporary bank storage and have the races password locked. I must also warn against using it as a bank, you never know what could go wrong and if it does and the money is gone, then it's gone. 
+
+Donator Packs
+
+    You can buy donator packs for real money (about $5) and sell them in game for the current item market price Here it can be a good way to get an initial start into the game, but don't spend it too fast! Remember to follow this guide, you only need a little money to start making more money! "; }
+if ($question=="help") { $answerq="What do you need help with?"; }
+if ($question=="good") { $answerq="Im glad to hear your good."; }
+if ($question=="$strenght") { $answerq="This stat is used to calculate how much damage a weapon does."; }
+if ($question=="$agility") { $answerq="This stat is used for dodging attacks."; }
+if ($question=="$force") { $answerq="This stat is used to calculate how much damage is done to you."; }
+if ($question=="$labour")  { $answerq="This stat is used for getting promoted in jobs."; }
+if ($question=="$IQ") { $answerq="This stat is stat is gained from courses and used for promotions."; }
+if ($question=="bars") { $answerq="points are used for various things under <a href=bexchange.php>Bar exchange</a>"; }
+if ($question=="cash") { $answerq="Cash is used to buy stuff all over the game"; }
+if ($question==$energy) { $answerq="This is used mainly for training and attacking"; }
+if ($question==$nerve) { $answerq="This is used for doing crimes"; }
+if ($question=="health") { $answerq="How much health you have in a fight"; }
+if ($question=="skill") { $answerq="Skill is used for mining"; }
+if ($question=="mine")  { $answerq="Mining a great way to earn bars"; }
+if ($question=="job") { $answerq="Nice way to earn cash and working stats"; }
+if ($question=="garage")  { $answerq="Where you keep your cars"; }
+if ($question=="$education")  { $answerq="Used for gaining intelligence"; }
+if ($question=="mail") { $answerq="Your own personal mail system"; }
+if ($question=="events") { $answerq="What happens to you is recorded here"; }
+if ($question=="logout")  { $answerq="Used to logout of the game, duh."; }
+if ($question=="$explore") { $answerq="Where the main links are listed"; }
+if ($question=="search") { $answerq="Search for other players!"; }
+if ($question=="friend list") { $answerq="Record your friends"; }
+if ($question=="black list") { $answerq="Record your enemys"; }
+if ($question=="$gang") { $answerq="Used for varios things, make friends, war etc, Join a $gang!"; }
+if ($question=="forums") { $answerq="Discuss various topics"; }
+if ($question=="preferences") { $answerq="Used to change your account around"; }
+if ($question=="donate") { $answerq="Donate to the game and be awared donator features"; }
+if ($question=="vote") { $answerq="Voting earns you stats and it helps the game grow"; }
+if ($question=="item"||$question=="items") { $answerq="Items are a main part of the game and used for doing lots of things"; }
+if ($question=="church") { $answerq="Used for getting married"; }
+if ($question=="stats") { $answerq="Stats are what determines your account and how good you are"; }
+if ($question=="travel")  { $answerq="Travel around the game"; }
+if ($question=="casino")  { $answerq="Casino, play various games earning you some cash"; }
+if ($question=="quests") { $answerq="Quests do varios tasks to earn rewards"; }
+if ($question=="banned") { $answerq="Users banned are listed in dungeon"; }
+if ($question=="war") { $answerq="War is when 2 $gang 's fight each other"; }
+if ($question=="staff") { $answerq="Main staff can be listed under Staff, ID 1 is the overall owner"; }
+if ($question=="prison") { $answerq="Sent here when failing crimes"; }
+if ($question=="hospital"||$question=="hosp") { $answerq="Sent here when attacked"; }
+if ($question=="noob"||$question=="n00b") { $answerq="Who you calling a noob?"; }
+if ($question=="****"||$question=="****"||$question==  "prick"||$question=="cunt"||$question=="*****"  ) { $answerq="Please do not swear"; }
+if ($question=="robot"||$question=="bot") { $answerq="Who you calling a bot!"; }
+if ($question=="who are you") { $answerq="I am the $game Bot"; }
+if ($question=="isomerizer") { $answerq="The elite one"; }
+ 
+print "You asked the Brian: [<b><font color=red>$question</b></font>]<br>";
+print "
+";
+print "</font<b>Brian replied:";
+if ($answerq=="") { print " [<font color=red><b>Sorry, I don't know the answer</font></b>]<hr width='700px'>"; }
+print " </i> ";
+print "[<font color=red><b>$answerq</b></font>]";
+print $ask;
+exit;
+}
+
+   include ('./includes/style_bottom.php');
+   ?>
